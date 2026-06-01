@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --unifil-orange: #FE9900;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+}
+
+.table-schedule {
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+.table-schedule th,
+.table-schedule td {
+    width: 120px;
+    height: 50px;
+    border: 1px solid #bdbdbd;
+    text-align: left;
+    vertical-align: middle;
+    padding-left: 15px;
+    font-size: 18px;
+}
+
+.table-schedule th {
+    background: #f26a1b;
+    color: white;
+    font-weight: normal;
+}
+
+.table-schedule .periodo {
+    background: #f26a1b;
+    color: white;
+    width: 140px;
+}
+
+.table-schedule td {
+    background: #ececec;
+}
