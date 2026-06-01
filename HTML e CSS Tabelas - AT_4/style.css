@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --unifil-orange: #FE9900;
+    --unifil-orange-dark: #FB5000;
+    --unifil-gray: #CCCCCC;
+    --unifil-blue: #C8D9F7;
+    --schedule-table-period-width: 256px;
+    --schedule-table-period-height: 40vh;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    align-content: center;
+}
+
+.unifil-schedule-table {
+    width: 90vw;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.unifil-schedule-table th {
+    border: 1.5px solid black;
+}
+.unifil-schedule-table td {
+    border: 1.5px solid black;
+}
+
+.unifil-schedule-table .table-information th:first-child {
+    padding-left: 1rem;
+    text-align: start;
+    border-right: none;
+}
+.unifil-schedule-table .table-information th:last-child {
+    border-left: none;
+    background-color: var(--unifil-blue);
+}
+
+.unifil-schedule-table .table-header th {
+    background-color: var(--unifil-gray);
+}
+.unifil-schedule-table .table-header .subject-cell {
+    background-color: var(--unifil-orange-dark);
+}
+
+.unifil-schedule-table .table-period th {
+    align-content: center;
+    font-size: 14px;
+}
+.unifil-schedule-table .table-period td {
+    width: var(--schedule-table-period-width);
+    align-content: end;
+    font-size: 14px;
+}
+.unifil-schedule-table .table-period th > div {
+    min-height: var(--schedule-table-period-height);
+}
+.unifil-schedule-table .table-period td > div {
+    min-height: calc(var(--schedule-table-period-height) * 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+.unifil-schedule-table .table-period .table-period-cell-footer {
+    text-align: center;
+    line-height: 1.5rem;
+}
+.unifil-schedule-table .table-period .table-period-flex-cell {
+    align-content: center;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    background-color: var(--unifil-orange);
+}
+
+.unifil-schedule-table .table-period-separator th {
+    background-color: var(--unifil-gray);
+}
+.unifil-schedule-table .table-period-separator td {
+    font-weight: bold;
+    text-align: center;
+    background-color: var(--unifil-gray);
+}
