@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+      * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f1f3f5;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .field-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        .field-container label,
+        .field-container span {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .password-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 15px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        input[type=radio] {
+            width: 10%;
+        }
+        input[type=radio]:focus {
+            box-shadow: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .radio-group div,
+        .checkbox-group div {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4f46e5;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #3730a3;
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 1.5rem;
+            }
+            .password-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="form-container">
+            <h1>Formulário do Balacobaco</h1>
+            <form action="" method="post">
+                <div class="field-container">
+                    <label for="id-name">Nome:</label>
+                    <input type="text" name="name" id="id-name" placeholder="Digite seu nome..." required>
+                </div>
+                <div class="field-container">
+                    <label for="id-email">E-mail:</label>
+                    <input type="email" name="email" id="id-email" placeholder="exemplo@email.com" required>
+                </div>
+                <div class="password-container">
+                    <div>
+                        <label for="id-password">Senha:</label>
+                        <input type="password" name="password" id="id-password">
+                    </div>
+                    <div>
+                        <label for="id-confirm-password">Confirmar Senha:</label>
+                        <input type="password" name="confirm-password" id="id-confirm-password">
+                    </div>
+                </div>
+                <div class="field-container">
+                    <label for="id-date">Data Nascimento:</label>
+                    <input type="date" name="date" id="id-date">
+                </div>
+                <div class="field-container">
+                    <label for="id-course">Curso:</label>
+                    <select name="course" id="id-course" required>
+                        <option value="">Selecione uma Opção:</option>
+                        <option value="ENSW">Engenharia de Software</option>
+                        <option value="CC">Ciência da Computação</option>
+                    </select>
+                </div>
+                <div class="field-container">
+                    <span>Sexo:</span>
+                    <div>
+                        <input type="radio" name="sexo" id="id-M">
+                        <label for="id-M">Masculino</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="sexo" id="id-F">
+                        <label for="id-F">Feminino</label>
+                    </div>
+                </div>
+                <div class="field-container">
+                    <label for="id-interesses">Interesses:</label>
+               
+                    <div class="checkbox-group">
+                        <div>
+                            <input type="checkbox" id="web">
+                            <label for="web">Web</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mobile">
+                            <label for="mobile">Mobile</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="data">
+                            <label for="data">Dados</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="machine-learning">
+                            <label for="machine-learning">Machine Learning</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="security">
+                            <label for="security">Ciberecurity</label>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="field-container">
+                    <label for="id-comentarios">Comentários:</label>
+                    <textarea
+                        name="comentarios"
+                        id="id-comentarios"
+                        placeholder="Digite seus comentários..."
+                    ></textarea>
+                </div>
+               
+                <div class="field-container">
+                    <label for="id-foto">Upload de Foto:</label>
+                    <input type="file" name="foto" id="id-foto" accept="image/*">
+                </div>
+               
+                <button type="submit">
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
