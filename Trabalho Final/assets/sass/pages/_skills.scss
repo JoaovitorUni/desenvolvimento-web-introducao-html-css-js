@@ -1,0 +1,191 @@
+@use 'sass:color';
+
+@use '../abstracts/variables';
+@use '../abstracts/typography';
+@use '../abstracts/utils';
+
+.skills {
+    padding: 100px 0;
+
+    &-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    &-header {
+        text-align: center;
+
+        h2 {
+            font-family: typography.$font-title;
+            font-size: 3rem;
+            color: variables.$text-primary;
+        }
+    }
+
+    &-filters {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    &-filter-btn {
+        padding: 10px 20px;
+        font-family: typography.$font-text;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: variables.$text-secondary;
+        cursor: pointer;
+        border-radius: 20px;
+        border: 1px solid color.change(variables.$white, $alpha: 0.1);
+        background: transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: variables.$accent-primary;
+            border-color: rgba(variables.$accent-primary, 0.4);
+            transform: translateY(-2px);
+        }
+
+        &.active {
+            color: variables.$accent-primary;
+            border-color: rgba(variables.$accent-primary, 0.4);
+            background: rgba(variables.$accent-primary, 0.1);
+        }
+    }
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    &-card {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        border-radius: 12px;
+        border: 1px solid color.change(variables.$white, $alpha: 0.05);
+        background: color.change(variables.$white, $alpha: 0.03);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fade-in-up 0.4s ease forwards;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            border-color: color.change(variables.$accent-primary, $alpha: 0.3);
+        }
+    }
+
+    &-card-title {
+        padding-bottom: 12px;
+        font-family: typography.$font-title;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: variables.$text-primary;
+        border-bottom: 1px solid color.change(variables.$white, $alpha: 0.1);
+    }
+
+    &-card-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+        gap: 20px;
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+
+
+        i {
+            font-size: 3rem;
+            transition: transform 0.3s ease;
+            color: variables.$white;
+        }
+
+        img {
+            width: 3rem;
+            height: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        span {
+            font-family: typography.$font-text;
+            font-size: 0.8rem;
+            color: variables.$text-secondary;
+            font-weight: 500;
+        }
+
+        &:hover i,
+        &:hover img {
+            transform: scale(1.15) translateY(-2px);
+        }
+
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media #{utils.break('lg')} {
+    .skills {
+        padding: 120px 64px;
+
+        &-header h2 {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+@media #{utils.break('md')} {
+    .skills {
+        padding: 100px 48px;
+
+        &-container {
+            gap: 40px;
+        }
+
+        &-filter-btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media #{utils.break('sm')} {
+    .skills {
+        padding: 80px 24px;
+
+        &-header h2 {
+            font-size: 2rem;
+        }
+
+        &-filters {
+            gap: 12px;
+        }
+
+        &-grid {
+            grid-template-columns: 1fr;
+        }
+
+        &-card {
+            padding: 20px;
+        }
+    }
+}
