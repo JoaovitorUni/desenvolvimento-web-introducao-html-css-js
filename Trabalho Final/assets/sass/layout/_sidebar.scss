@@ -40,3 +40,9 @@ $sidebar-min-width: 80px;
         }
     }
 }
+
+@media #{utils.break('sm')} {
+    .contact-sidebar {
+        display: none;
+    }
+}

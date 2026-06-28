@@ -1,10 +1,10 @@
 @use 'sass:map';
 
 $breakpoints: (
-    'sm': '(min-width: 480px)',
-    'md': '(min-width: 768px)',
-    'lg': '(min-width: 1024px)',
-    'hg': '(min-width: 1200px)',
+    'sm': '(max-width: 480px)',
+    'md': '(max-width: 768px)',
+    'lg': '(max-width: 1024px)',
+    'hg': '(max-width: 1200px)',
 );
 
 @function break($size) {

@@ -1,8 +1,15 @@
 @use '../abstracts/variables';
+@use '../abstracts/utils';
 @use '../layout/sidebar';
 
 body {
     min-height: 100vh;
     padding-left: max(sidebar.$sidebar-width, sidebar.$sidebar-min-width);
     background-color: variables.$color-primary;
+}
+
+@media #{utils.break('sm')} {
+    body {
+        padding-left: 0;
+    }
 }

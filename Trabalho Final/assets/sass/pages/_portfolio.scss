@@ -10,7 +10,8 @@ $ov-glow: color.change($ov-accent, $alpha: 0.30);
 
 $ov-gradient-start: color.change($ov-accent, $alpha: 0.06);
 $ov-gradient-end: color.change(variables.$color-primary, $alpha: 0.3);
-$ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start, $ov-gradient-end),
+$ov-background-gradient:
+  radial-gradient(70% 60% at 60% 40%, $ov-gradient-start, $ov-gradient-end),
   radial-gradient(40% 50% at 15% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent),
   radial-gradient(40% 50% at 85% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent);
 
@@ -20,7 +21,7 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px;
+  padding: 140px 96px;
   overflow: hidden;
 
   &::before {
@@ -39,9 +40,9 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    text-align: center;
-    align-items: center;
+    gap: 32px;
+    text-align: left;
+    align-items: flex-start;
     animation: ov-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -50,7 +51,7 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
 
     h1 {
       font-family: typography.$font-title;
-      font-size: 2.2rem;
+      font-size: 4.5rem;
       font-weight: 700;
       color: variables.$text-primary;
       line-height: 1.1;
@@ -67,7 +68,7 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
   &-description {
     max-width: 600px;
     font-family: typography.$font-text;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.75;
     color: variables.$text-secondary;
     animation: ov-fade-up 0.8s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -76,8 +77,8 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
   &-actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 16px;
     animation: ov-fade-up 0.8s 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
@@ -85,7 +86,7 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
+    padding: 14px 32px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
@@ -107,14 +108,10 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
         transform: translateY(-3px);
         box-shadow: 0 8px 28px $ov-glow;
 
-        i {
-          transform: translateX(4px);
-        }
+        i { transform: translateX(4px); }
       }
 
-      &:active {
-        transform: translateY(-1px);
-      }
+      &:active { transform: translateY(-1px); }
     }
 
     &-secondary {
@@ -127,14 +124,10 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
         color: $ov-accent;
         transform: translateY(-3px);
 
-        i {
-          transform: translateX(4px);
-        }
+        i { transform: translateX(4px); }
       }
 
-      &:active {
-        transform: translateY(-1px);
-      }
+      &:active { transform: translateY(-1px); }
     }
   }
 }
@@ -151,18 +144,16 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
   }
 }
 
-@media #{utils.break('sm')} {
+@media #{utils.break('lg')} {
   .overview {
-    padding: 90px 32px;
+    padding: 120px 64px;
 
     &-container {
-      text-align: left;
-      align-items: flex-start;
+      gap: 28px;
     }
 
-    &-actions {
-      justify-content: flex-start;
-      gap: 16px;
+    &-heading h1 {
+      font-size: 4rem;
     }
   }
 }
@@ -172,7 +163,7 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
     padding: 100px 48px;
 
     &-container {
-      gap: 28px;
+      gap: 24px;
     }
 
     &-heading h1 {
@@ -184,25 +175,31 @@ $ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start,
     }
 
     &-btn {
-      padding: 14px 32px;
+      padding: 12px 24px;
     }
   }
 }
 
-@media #{utils.break('lg')} {
+@media #{utils.break('sm')} {
   .overview {
-    padding: 120px 64px;
+    padding: 80px 24px;
 
     &-container {
-      gap: 32px;
+      text-align: center;
+      align-items: center;
     }
 
     &-heading h1 {
-      font-size: 4.5rem;
+      font-size: 2.2rem;
     }
 
     &-description {
-      font-size: 1.05rem;
+      font-size: 0.95rem;
+    }
+
+    &-actions {
+      justify-content: center;
+      gap: 12px;
     }
   }
 }

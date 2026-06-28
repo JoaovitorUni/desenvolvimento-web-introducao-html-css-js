@@ -7,7 +7,7 @@ $navbar-max-width: 600px;
 .floating-navbar {
   position: fixed;
   top: 24px;
-  left: calc((50% + (max(sidebar.$sidebar-width, sidebar.$sidebar-min-width)) / 2));
+  left: calc(50% + max(sidebar.$sidebar-width, sidebar.$sidebar-min-width) / 2);
   transform: translateX(-50%);
 
   width: $navbar-max-width;
@@ -21,13 +21,9 @@ $navbar-max-width: 600px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   z-index: utils.z('overlay');
 
-
   .nav-links {
     width: 100%;
     display: flex;
-
-
-
     justify-content: space-around;
     list-style: none;
     gap: 24px;
@@ -37,6 +33,7 @@ $navbar-max-width: 600px;
     a {
       color: variables.$text-secondary;
       text-decoration: none;
+      font-size: 1rem;
       transition: color 0.3s ease, text-shadow 0.3s ease;
       position: relative;
       padding: 6px 0;
@@ -70,6 +67,24 @@ $navbar-max-width: 600px;
           width: 100%;
           left: 0;
         }
+      }
+    }
+  }
+}
+
+@media #{utils.break('sm')} {
+  .floating-navbar {
+    top: 16px;
+    left: 50%;
+    width: calc(100% - 32px);
+    height: 48px;
+    padding: 0 16px;
+
+    .nav-links {
+      gap: 12px;
+
+      a {
+        font-size: 0.85rem;
       }
     }
   }
