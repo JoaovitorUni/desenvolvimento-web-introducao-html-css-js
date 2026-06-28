@@ -1,3 +1,4 @@
+@use '../abstracts/utils';
 @use '../abstracts/variables';
 
 $sidebar-width: 5vw;
@@ -11,6 +12,7 @@ $sidebar-min-width: 80px;
     top: 0;
     left: 0;
     padding: 32px 16px;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -21,7 +23,7 @@ $sidebar-min-width: 80px;
     background: variables.$color-secondary;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-    z-index: 100;
+    z-index: utils.z('overlay');
 
     a {
         color: variables.$text-secondary;

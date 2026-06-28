@@ -1,0 +1,5 @@
+@use '../abstracts/typography';
+
+* {
+    font-family: typography.$font-text;
+}
