@@ -1,0 +1,8 @@
+@use '../abstracts/variables';
+@use '../layout/sidebar';
+
+body {
+    min-height: 100vh;
+    padding-left: max(sidebar.$sidebar-width, sidebar.$sidebar-min-width);
+    background-color: variables.$color-primary;
+}
