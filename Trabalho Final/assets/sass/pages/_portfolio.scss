@@ -1,0 +1,208 @@
+@use 'sass:color';
+
+@use '../abstracts/variables';
+@use '../abstracts/typography';
+@use '../abstracts/utils';
+
+$ov-accent: variables.$accent-primary;
+$ov-accent-contrast: variables.$accent-primary-contrast;
+$ov-glow: color.change($ov-accent, $alpha: 0.30);
+
+$ov-gradient-start: color.change($ov-accent, $alpha: 0.06);
+$ov-gradient-end: color.change(variables.$color-primary, $alpha: 0.3);
+$ov-background-gradient: radial-gradient(70% 60% at 60% 40%, $ov-gradient-start, $ov-gradient-end),
+  radial-gradient(40% 50% at 15% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent),
+  radial-gradient(40% 50% at 85% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent);
+
+.overview {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $ov-background-gradient;
+    pointer-events: none;
+    z-index: utils.z('below');
+  }
+
+  &-container {
+    position: relative;
+    z-index: utils.z('default');
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+    align-items: center;
+    animation: ov-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  &-heading {
+    animation: ov-fade-up 0.8s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+    h1 {
+      font-family: typography.$font-title;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: variables.$text-primary;
+      line-height: 1.1;
+
+      .highlight {
+        background: linear-gradient(135deg, $ov-accent 0%, $ov-accent-contrast 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+  }
+
+  &-description {
+    max-width: 600px;
+    font-family: typography.$font-text;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: variables.$text-secondary;
+    animation: ov-fade-up 0.8s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  &-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    animation: ov-fade-up 0.8s 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: typography.$font-text;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &-primary {
+      background: linear-gradient(135deg, $ov-accent 0%, color.scale($ov-accent, $lightness: -8%) 100%);
+      color: variables.$color-primary;
+      box-shadow: 0 4px 20px $ov-glow;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px $ov-glow;
+
+        i {
+          transform: translateX(4px);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+
+    &-secondary {
+      background: transparent;
+      color: variables.$text-primary;
+      border: 1px solid color.change(variables.$white, $alpha: 0.07);
+
+      &:hover {
+        border-color: color.change($ov-accent, $alpha: 0.40);
+        color: $ov-accent;
+        transform: translateY(-3px);
+
+        i {
+          transform: translateX(4px);
+        }
+      }
+
+      &:active {
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+@keyframes ov-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media #{utils.break('sm')} {
+  .overview {
+    padding: 90px 32px;
+
+    &-container {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    &-actions {
+      justify-content: flex-start;
+      gap: 16px;
+    }
+  }
+}
+
+@media #{utils.break('md')} {
+  .overview {
+    padding: 100px 48px;
+
+    &-container {
+      gap: 28px;
+    }
+
+    &-heading h1 {
+      font-size: 3.4rem;
+    }
+
+    &-description {
+      font-size: 1rem;
+    }
+
+    &-btn {
+      padding: 14px 32px;
+    }
+  }
+}
+
+@media #{utils.break('lg')} {
+  .overview {
+    padding: 120px 64px;
+
+    &-container {
+      gap: 32px;
+    }
+
+    &-heading h1 {
+      font-size: 4.5rem;
+    }
+
+    &-description {
+      font-size: 1.05rem;
+    }
+  }
+}
