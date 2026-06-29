@@ -57,10 +57,6 @@
       transform: translateY(-5px);
       border-color: color.change(variables.$accent-secondary, $alpha: 0.4);
       box-shadow: 0 10px 30px color.change(variables.$accent-secondary, $alpha: 0.1);
-
-      .projects-card-image img {
-        transform: scale(1.05);
-      }
     }
 
     &-image {
