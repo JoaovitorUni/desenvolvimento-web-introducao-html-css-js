@@ -8,12 +8,13 @@ $ov-accent: variables.$accent-primary;
 $ov-accent-contrast: variables.$accent-primary-contrast;
 $ov-glow: color.change($ov-accent, $alpha: 0.30);
 
-$ov-gradient-start: color.change($ov-accent, $alpha: 0.06);
-$ov-gradient-end: color.change(variables.$color-primary, $alpha: 0.3);
+$ov-primary-gradient-start: color.change($ov-accent, $alpha: 0.15);
+$ov-primary-gradient-end: color.change(variables.$color-primary, $alpha: 0.3);
+$ov-secondary-gradient-start: color.change($ov-accent-contrast, $alpha: 0.15);
 $ov-background-gradient:
-  radial-gradient(70% 60% at 60% 40%, $ov-gradient-start, $ov-gradient-end),
-  radial-gradient(40% 50% at 15% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent),
-  radial-gradient(40% 50% at 85% 80%, color.change($ov-accent-contrast, $alpha: 0.08), transparent);
+  radial-gradient(70% 60% at 60% 40%, $ov-primary-gradient-start, $ov-primary-gradient-end),
+  radial-gradient(40% 50% at 15% 80%, $ov-secondary-gradient-start, transparent),
+  radial-gradient(40% 50% at 85% 80%, $ov-secondary-gradient-start, transparent);
 
 .overview {
   position: relative;
