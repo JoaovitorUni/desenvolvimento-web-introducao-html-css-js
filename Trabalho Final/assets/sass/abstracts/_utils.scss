@@ -1,0 +1,22 @@
+@use 'sass:map';
+
+$breakpoints: (
+    'sm': '(max-width: 480px)',
+    'md': '(max-width: 768px)',
+    'lg': '(max-width: 1024px)',
+    'hg': '(max-width: 1200px)',
+);
+
+@function break($size) {
+    @return map.get($breakpoints, $size);
+}
+
+$z-indexes: (
+    'below': -1,
+    'default': 1,
+    'overlay': 100,
+);
+
+@function z($layer) {
+    @return map.get($z-indexes, $layer);
+}

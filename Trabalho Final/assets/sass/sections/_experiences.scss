@@ -1,0 +1,229 @@
+@use 'sass:color';
+
+@use '../abstracts/variables';
+@use '../abstracts/typography';
+@use '../abstracts/utils';
+
+.experiences {
+  padding: 100px 96px;
+  background-color: variables.$color-primary;
+
+  &-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &-header {
+    text-align: center;
+
+    h2 {
+      font-family: typography.$font-title;
+      font-size: 3rem;
+      color: variables.$text-primary;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-family: typography.$font-text;
+      color: variables.$text-secondary;
+      font-size: 1.1rem;
+    }
+  }
+
+  &-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+  }
+
+  &-card {
+    background: color.change(variables.$white, $alpha: 0.03);
+    border: 1px solid color.change(variables.$white, $alpha: 0.05);
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      border-color: color.change(variables.$accent-primary, $alpha: 0.3);
+      box-shadow: 0 10px 30px color.change(variables.$color-secondary, $alpha: 0.5);
+    }
+
+    &-large {
+      grid-row: span 2;
+      padding: 40px;
+    }
+
+    &-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    &-title {
+      font-family: typography.$font-title;
+      font-size: 1.6rem;
+      color: variables.$text-primary;
+    }
+
+    &-subtitle {
+      font-family: typography.$font-text;
+      font-size: 1rem;
+      color: variables.$accent-primary-contrast;
+      font-weight: 600;
+    }
+
+    &-body {
+      flex-grow: 1;
+    }
+  }
+
+  &-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background-color: color.change(variables.$accent-primary, $alpha: 0.1);
+    color: variables.$accent-primary;
+    font-family: typography.$font-text;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+
+    &-active {
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: variables.$accent-primary;
+        box-shadow: 0 0 8px variables.$accent-primary;
+        animation: pulse-active 2s infinite;
+      }
+    }
+  }
+
+  &-description {
+    font-family: typography.$font-text;
+    font-size: 1rem;
+    color: variables.$text-secondary;
+    line-height: 1.3;
+
+  }
+
+  &-card:not(&-card-large) {
+    .experiences-description {
+      font-size: 0.9rem;
+    }
+  }
+
+  &-list {
+    margin-top: 1rem;
+    font-family: typography.$font-text;
+    color: variables.$text-secondary;
+    line-height: 1.7;
+
+    li {
+      margin-left: 1rem;
+    }
+
+    li::marker {
+      color: variables.$accent-primary-contrast;
+    }
+
+    li:not(:last-child) {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  &-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+
+    span {
+      font-family: typography.$font-text;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: variables.$text-muted;
+      background: color.change(variables.$white, $alpha: 0.04);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+  }
+}
+
+@keyframes pulse-active {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media #{utils.break('lg')} {
+  .experiences {
+    padding: 120px 64px;
+
+    &-header h2 {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+@media #{utils.break('md')} {
+  .experiences {
+    padding: 100px 48px;
+
+    &-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    &-card {
+      &--large {
+        grid-row: auto;
+      }
+    }
+  }
+
+}
+
+@media #{utils.break('sm')} {
+  .experiences {
+    padding: 80px 24px;
+
+    &-header h2 {
+      font-size: 2rem;
+    }
+
+    &-card {
+      padding: 24px;
+
+      &--large {
+        padding: 24px;
+      }
+    }
+  }
+}
